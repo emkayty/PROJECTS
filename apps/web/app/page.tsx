@@ -43,21 +43,9 @@ export default function HomePage() {
   const API_URL = '';
 
   useEffect(() => {
-    checkAuth();
+    // Auth check removed - page loads instantly
+    // Users can login via modal when needed
   }, []);
-
-  async function checkAuth() {
-    try {
-      const res = await fetch(API_URL + '/api/auth/me');
-      const data = await res.json();
-      
-      if (data.user) {
-        setCurrentUser(data.user);
-      }
-    } catch (error) {
-      console.error('Auth check failed:', error);
-    }
-  }
 
   function openAuthModal(mode: 'login' | 'signup') {
     setAuthMode(mode);
