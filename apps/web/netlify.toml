@@ -1,0 +1,30 @@
+# Netlify Configuration for Hisah Tech Forum
+# Full Next.js 15 support with API functions
+
+[build]
+  command = "npm run build"
+  publish = ".next/server/app"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Required for Next.js 15+ with App Router
+[functions]
+  node_runtime = "nodejs18"
+
+[[redirects]]
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
+  force = true
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/favicon.ico"
+  force = true
+
+# Handle all routes - send to index.html for SPA-like behavior
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
