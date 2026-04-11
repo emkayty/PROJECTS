@@ -1,0 +1,236 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/api/files/comments/[id]",
+      "regex": "^/api/files/comments/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/files/comments/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/files/[id]/comments",
+      "regex": "^/api/files/([^/]+?)/comments(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/files/(?<nxtPid>[^/]+?)/comments(?:/)?$"
+    },
+    {
+      "page": "/api/files/[id]/rating",
+      "regex": "^/api/files/([^/]+?)/rating(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/files/(?<nxtPid>[^/]+?)/rating(?:/)?$"
+    },
+    {
+      "page": "/api/messages/[conversationId]",
+      "regex": "^/api/messages/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPconversationId": "nxtPconversationId"
+      },
+      "namedRegex": "^/api/messages/(?<nxtPconversationId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/profile/[username]",
+      "regex": "^/api/profile/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPusername": "nxtPusername"
+      },
+      "namedRegex": "^/api/profile/(?<nxtPusername>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/messages/[conversationId]",
+      "regex": "^/messages/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPconversationId": "nxtPconversationId"
+      },
+      "namedRegex": "^/messages/(?<nxtPconversationId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/profile/[username]",
+      "regex": "^/profile/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPusername": "nxtPusername"
+      },
+      "namedRegex": "^/profile/(?<nxtPusername>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about-us",
+      "regex": "^/about\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-us(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/bulk-upload",
+      "regex": "^/admin/bulk\\-upload(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/bulk\\-upload(?:/)?$"
+    },
+    {
+      "page": "/admin/payment-settings",
+      "regex": "^/admin/payment\\-settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/payment\\-settings(?:/)?$"
+    },
+    {
+      "page": "/bios-files",
+      "regex": "^/bios\\-files(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/bios\\-files(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/chrome-to-windows",
+      "regex": "^/chrome\\-to\\-windows(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/chrome\\-to\\-windows(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard(?:/)?$"
+    },
+    {
+      "page": "/dashboard/settings",
+      "regex": "^/dashboard/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/settings(?:/)?$"
+    },
+    {
+      "page": "/files",
+      "regex": "^/files(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/files(?:/)?$"
+    },
+    {
+      "page": "/forgot-password",
+      "regex": "^/forgot\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/forgot\\-password(?:/)?$"
+    },
+    {
+      "page": "/messages",
+      "regex": "^/messages(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/messages(?:/)?$"
+    },
+    {
+      "page": "/password-generator",
+      "regex": "^/password\\-generator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/password\\-generator(?:/)?$"
+    },
+    {
+      "page": "/pricing",
+      "regex": "^/pricing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pricing(?:/)?$"
+    },
+    {
+      "page": "/repair-guides",
+      "regex": "^/repair\\-guides(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/repair\\-guides(?:/)?$"
+    },
+    {
+      "page": "/reset-password",
+      "regex": "^/reset\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/reset\\-password(?:/)?$"
+    },
+    {
+      "page": "/schematics",
+      "regex": "^/schematics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/schematics(?:/)?$"
+    },
+    {
+      "page": "/settings/profile",
+      "regex": "^/settings/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/settings/profile(?:/)?$"
+    },
+    {
+      "page": "/tools/chrome-to-windows",
+      "regex": "^/tools/chrome\\-to\\-windows(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/chrome\\-to\\-windows(?:/)?$"
+    },
+    {
+      "page": "/tools/password-generator",
+      "regex": "^/tools/password\\-generator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/password\\-generator(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
