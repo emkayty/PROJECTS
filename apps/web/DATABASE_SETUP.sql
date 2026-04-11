@@ -1,8 +1,6 @@
 -- Hisah Tech Database Schema
 -- Run this on your Neon PostgreSQL database
-
--- Enable UUID extension
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+-- Note: Neon doesn't support CREATE EXTENSION
 
 -- USERS TABLE
 CREATE TABLE IF NOT EXISTS users (
