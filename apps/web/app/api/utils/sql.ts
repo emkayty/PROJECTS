@@ -1,25 +1,14 @@
 import { neon } from '@neondatabase/serverless';
 
-const NullishQueryFunction = () => {
-  throw new Error(
-    'No database connection string was provided to `neon()`. Perhaps process.env.DATABASE_URL has not been set'
-  );
-};
+// Use placeholder for build time - will be replaced at runtime
+const buildTimeDbUrl = process.env.DATABASE_URL || 'postgresql://placeholder:placeholder@placeholder.db.neon.tech/placeholder?sslmode=require';
 
-NullishQueryFunction.transaction = () => {
-  throw new Error(
-    'No database connection string was provided to `neon()`. Perhaps process.env.DATABASE_URL has not been set'
-  );
-};
-
-const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : NullishQueryFunction;
+const sql = neon(buildTimeDbUrl);
 
 // Helper function to get SQL client (for files that import getSqlClient)
 export function getSqlClient() {
-  if (!process.env.DATABASE_URL) {
-    throw new Error('No database connection string was provided to `neon()`. Perhaps process.env.DATABASE_URL has not been set');
-  }
-  return neon(process.env.DATABASE_URL);
+  const url = process.env.DATABASE_URL || buildTimeDbUrl;
+  return neon(url);
 }
 
 // Re-export neon for direct imports

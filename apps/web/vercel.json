@@ -1,5 +1,5 @@
 {
-  "buildCommand": "DATABASE_URL=placeholder npm run build",
+  "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install"
 }
