@@ -16,10 +16,80 @@ html, body {
 /* Safe area insets for notch/home indicator */
 body {
   padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Ensure tap targets are large enough for mobile */
 button, a {
   min-height: 44px;
   min-width: 44px;
+}
+
+/* Touch-friendly interactive elements */
+.touch-manage {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+}
+
+/* Prevent text selection on buttons */
+button, .btn {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Better input touch target - prevents iOS zoom */
+input, textarea, select {
+  font-size: 16px;
+}
+
+/* Smooth scrolling for mobile */
+@media (prefer-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  html { font-size: 14px; }
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.25rem !important; }
+  h3 { font-size: 1.1rem !important; }
+}
+
+/* Forum header mobile optimized */
+.forum-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+}
+
+/* Card shadows for mobile */
+@media (max-width: 640px) {
+  .shadow-sm { shadow-opacity: 0.1; }
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Better modal on mobile */
+@media (max-width: 640px) {
+  .modal-content {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
 }

@@ -111,8 +111,8 @@ export default function HomePage() {
 
   return (
     <div className="bg-gray-100">
-      {/* Top Navigation Bar */}
-      <div className="forum-header text-white py-3 px-4 shadow-md">
+      {/* Desktop Top Navigation - Hidden on Mobile */}
+      <div className="forum-header text-white py-3 px-4 shadow-md hidden md:block">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-3">
             <div className="flex items-center gap-3">
@@ -147,6 +147,30 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Mobile Header - Visible only on Mobile */}
+      <div className="forum-header text-white py-2 px-3 shadow-md md:hidden">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <img 
+              src="https://app-cdn.appgen.com/c7064d62-1c73-490d-ac77-d68af9351b9e/assets/uploaded_1770778750067_te5t3k.jpeg" 
+              alt="Hisah Tech Logo" 
+              className="w-8 h-8 rounded-full object-contain bg-white/10 p-0.5"
+            />
+            <h1 className="text-lg font-bold">HISAH TECH</h1>
+          </div>
+          <div className="flex gap-2">
+            {!currentUser ? (
+              <>
+                <button onClick={() => openAuthModal('login')} className="text-sm bg-white/20 px-2 py-1 rounded">Login</button>
+                <button onClick={() => openAuthModal('signup')} className="text-sm bg-blue-500 px-2 py-1 rounded">Register</button>
+              </>
+            ) : (
+              <button onClick={logout} className="text-sm bg-white/20 px-2 py-1 rounded">Logout</button>
+            )}
+          </div>
+        </div>
+      </div>
+
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="breadcrumb">
@@ -176,30 +200,31 @@ export default function HomePage() {
           </div>
           
           <div className="forum-category mb-2">
-            <div className="flex p-4">
-              <div className="w-12 flex-shrink-0">
-                <svg className="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <div className="flex p-3 md:p-4 gap-3">
+              <div className="w-10 md:w-12 flex-shrink-0">
+                <svg className="w-8 h-8 md:w-10 md:h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z" />
                 </svg>
               </div>
-              <div className="flex-1">
-                <h3 className="text-blue-700 font-bold text-base mb-1">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-blue-700 font-bold text-sm md:text-base mb-1">
                   <a href="#" className="hover:underline">Troubleshooting &amp; Repair</a>
                 </h3>
-                <p className="text-gray-600 text-sm">Get help diagnosing and fixing hardware problems. Post your issues here.</p>
-                <div className="text-xs text-gray-500 mt-1">Moderators: <a href="#" className="text-blue-600">Admin</a>, <a href="#" className="text-blue-600">RepairGuru</a></div>
+                <p className="text-gray-600 text-xs md:text-sm line-clamp-2">Get help diagnosing and fixing hardware problems. Post your issues here.</p>
+                <div className="text-xs text-gray-500 mt-1 md:hidden">Mod: <a href="#" className="text-blue-600">Admin</a></div>
               </div>
-              <div className="w-20 text-center text-sm">
+              {/* Desktop stats - hidden on mobile */}
+              <div className="w-16 md:w-20 text-center text-sm hidden md:block">
                 <div className="font-bold text-gray-700">45,892</div>
                 <div className="text-xs text-gray-500">Topics</div>
               </div>
-              <div className="w-20 text-center text-sm">
+              <div className="w-16 md:w-20 text-center text-sm hidden md:block">
                 <div className="font-bold text-gray-700">342,108</div>
                 <div className="text-xs text-gray-500">Posts</div>
               </div>
-              <div className="w-48 text-xs">
+              <div className="w-24 md:w-48 text-xs hidden md:block">
                 <div className="text-gray-600"><span className="font-bold">Last post</span> by <a href="#" className="text-blue-600">ElectroFix</a></div>
-                <div className="text-gray-500">in <a href="#" className="text-blue-600">Dead PSU - no power</a></div>
+                <div className="text-gray-500">in <a href="#" className="text-blue-600">Dead PSU</a></div>
                 <div className="text-gray-400">Today at 2:34 PM</div>
               </div>
             </div>
@@ -401,13 +426,13 @@ export default function HomePage() {
 
       {/* Auth Modal */}
       {showAuthModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg p-4 md:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4 md:mb-6">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                 {authMode === 'login' ? 'Login' : 'Register'}
               </h2>
-              <button onClick={closeAuthModal} className="text-gray-400 hover:text-gray-600">
+              <button onClick={closeAuthModal} className="text-gray-400 hover:text-gray-600 p-1" aria-label="Close">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
